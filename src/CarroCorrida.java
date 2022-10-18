@@ -69,20 +69,22 @@ public class CarroCorrida {
             System.out.println("O carro não está ligado ainda! Ligue antes de frear.");
             return;
         }
-        if (velocidadeAtual > 0){
-            if (decrescimoVelocidade <= velocidadeAtual)
-                velocidadeAtual -= decrescimoVelocidade;
-            else
-                velocidadeAtual = 0;
-           System.out.printf("O carro está freando, a velocidade agora é de %.2f km/h\n", velocidadeAtual);
-        } else {
-            System.out.println("Inicie o movimento do carro antes de usar o freio.");
-        }
+
+        if (decrescimoVelocidade <= velocidadeAtual)
+            velocidadeAtual -= decrescimoVelocidade;
+        else
+            velocidadeAtual = 0;
+        System.out.printf("O carro está freando, a velocidade agora é de %.2f km/h\n", velocidadeAtual);
+
     }
 
     public void parar(){
-        frear(velocidadeAtual);
-        System.out.println("O carro parou.");
+        if (velocidadeAtual > 0) {
+            frear(velocidadeAtual);
+            System.out.println("O carro parou.");
+        } else {
+            System.out.println("Inicie o movimento do carro antes de usar o freio.");
+        }
     }
 
     public void ligar(){
@@ -99,7 +101,7 @@ public class CarroCorrida {
             System.out.println("O carro já está desligado");
         } else if (velocidadeAtual == 0 && ligado){
             ligado = false;
-            System.out.println("O carro agora está desligado");
+            System.out.println("O carro está desligado agora.");
         } else
             System.out.println("É preciso parar o carro antes de desligá-lo.");
     }

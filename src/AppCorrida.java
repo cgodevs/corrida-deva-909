@@ -16,10 +16,12 @@ public class AppCorrida {
 
         carroCarol.ligar();
         carroCarol.acelerar(180.5f); // uso incorreto (para teste)
+
         carroCarol.frear(5.0f);
         carroCarol.acelerar(32.0f);  // uso incorreto (para teste)
         carroCarol.frear(carroCarol.getVelocidadeAtual());
         carroCarol.acelerar(carroCarol.getVelocidadeMaxima());
+
         carroCarol.desligar();  // uso incorreto (para teste)
         carroCarol.parar();
         carroCarol.desligar();
